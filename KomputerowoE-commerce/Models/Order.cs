@@ -6,5 +6,6 @@
         public DateTime OrderDate { get; set; }
         public int[] Product_ID { get; set; }
         public string CustomerName { get; set; }
+         
     }
 }
