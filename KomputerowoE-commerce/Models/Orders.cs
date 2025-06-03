@@ -1,7 +1,9 @@
-﻿namespace KomputerowoE_commerce.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace KomputerowoE_commerce.Models
 {
     //Order Model
-    public class Order
+    public class Orders
     {
         public int id { get; set; }
         public DateTime orderdate { get; set; }

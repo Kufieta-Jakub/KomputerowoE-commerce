@@ -13,27 +13,27 @@ namespace KomputerowoE_commerce.Data
         }
 
         public DbSet<Product> product { get; set; }
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Orders> orders { get; set; }
         public DbSet<OrderProduct> orderProduct { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().ToTable("product");
-            modelBuilder.Entity<Order>().ToTable("order");
+            modelBuilder.Entity<Orders>().ToTable("orders");
             modelBuilder.Entity<OrderProduct>().ToTable("orderproduct");
 
             modelBuilder.Entity<OrderProduct>()
-                .HasKey(op => new { op.OrderId, op.ProductId });
+                .HasKey(op => new { op.orderid, op.productid });
 
             modelBuilder.Entity<OrderProduct>()
-                .HasOne(op => op.Order)
+                .HasOne(op => op.Orders)
                 .WithMany(o => o.OrderProducts)
-                .HasForeignKey(op => op.OrderId);
+                .HasForeignKey(op => op.orderid);
 
             modelBuilder.Entity<OrderProduct>()
                 .HasOne(op => op.Product)
                 .WithMany(p => p.OrderProducts)
-                .HasForeignKey(op => op.ProductId);
+                .HasForeignKey(op => op.productid);
         }
     }
 }

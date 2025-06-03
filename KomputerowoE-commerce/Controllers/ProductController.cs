@@ -24,5 +24,32 @@ namespace KomputerowoE_commerce.Controllers
             return await _context.product.ToListAsync();
         }
 
+        [HttpGet("id/{id}")]
+        public async Task<ActionResult<Product>> GetSignleProductsById(int id)
+        {
+            var product = await _context.product.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return product;
+            }
+        }
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<List<Product>>> GetSignleProductsByName(string name)
+        {
+            var product = await _context.product
+                                            .Where(p => p.name == name)
+                                            .ToListAsync();
+            if (!product.Any())
+            {
+                return NotFound();
+            }
+           
+                return product;
+            
+        }
     }
 }
