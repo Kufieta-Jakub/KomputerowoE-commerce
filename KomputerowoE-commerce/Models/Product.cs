@@ -1,12 +1,13 @@
 ﻿namespace KomputerowoE_commerce.Models
 {
+    //Product Model
     public class Product
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-         
+        public int id { get; set; }
+        public string name { get; set; }
+        public decimal price { get; set; }
+        public string type { get; set; }
+        public string description { get; set; }
+        public List<OrderProduct> OrderProducts { get; set; }
     }
 }
