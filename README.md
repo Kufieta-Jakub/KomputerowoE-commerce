@@ -118,4 +118,10 @@ CREATE TABLE public.orderproduct (
     CONSTRAINT orderproduct_productid_fkey FOREIGN KEY (productid)
         REFERENCES public.product(id) ON DELETE CASCADE
 );
+```
+4. ***Warto zmienić***
+   
+   W pliku ([/appsettingsjson](https://github.com/Kufieta-Jakub/KomputerowoE-commerce/blob/master/KomputerowoE-commerce/appsettings.json))
 
+   ```json
+    "DefaultConnection": "Host=localhost;Port=5432;Database=KomputerowoDB;Username=<twój użytkownik>;Password=<twoje hasło>"
