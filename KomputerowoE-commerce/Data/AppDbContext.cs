@@ -14,7 +14,7 @@ namespace KomputerowoE_commerce.Data
 
         public DbSet<Product> product { get; set; }
         public DbSet<Orders> orders { get; set; }
-        public DbSet<OrderProduct> orderProduct { get; set; }
+        public DbSet<OrderProduct> orderproduct { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,12 +27,12 @@ namespace KomputerowoE_commerce.Data
 
             modelBuilder.Entity<OrderProduct>()
                 .HasOne(op => op.Orders)
-                .WithMany(o => o.OrderProducts)
+                .WithMany(o => o.orderproduct)
                 .HasForeignKey(op => op.orderid);
 
             modelBuilder.Entity<OrderProduct>()
                 .HasOne(op => op.Product)
-                .WithMany(p => p.OrderProducts)
+                .WithMany(p => p.orderproduct)
                 .HasForeignKey(op => op.productid);
         }
     }

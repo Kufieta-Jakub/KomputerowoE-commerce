@@ -11,6 +11,6 @@ namespace KomputerowoE_commerce.Models
         public string? type { get; set; }
         public string? description { get; set; }
         [JsonIgnore]
-        public List<OrderProduct> OrderProducts { get; set; } = new();
+        public List<OrderProduct> orderproduct { get; set; } = new();
     }
 }

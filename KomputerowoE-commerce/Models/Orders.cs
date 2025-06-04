@@ -9,6 +9,8 @@ namespace KomputerowoE_commerce.Models
         public int id { get; set; }
         public DateTime orderdate { get; set; } =DateTime.UtcNow;
         public string customername { get; set; }
-        public List<OrderProduct> OrderProducts { get; set; } = new();
+        [JsonIgnore]
+        public List<OrderProduct> orderproduct { get; set; } = new();
+
     }
 }
