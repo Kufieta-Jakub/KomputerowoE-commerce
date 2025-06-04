@@ -92,40 +92,32 @@ namespace KomputerowoE_commerce.Controllers
                     order.orderdate = DateTime.UtcNow;
                 }
 
-                //Firstly adding order
+                
                 _context.orders.Add(order);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); 
 
-                //Deleting a duplicates
-                order.OrderProducts = order.OrderProducts
-                    ?.GroupBy(op => op.productid)
-                    .Select(g => g.First())
-                    .ToList();
-
-                //Adding connection
                 if (order.OrderProducts != null && order.OrderProducts.Any())
                 {
+                    // Delete Duplicates
+                    order.OrderProducts = order.OrderProducts
+                        .GroupBy(op => op.productid)
+                        .Select(g => g.First())
+                        .ToList();
+
+                    
                     foreach (var op in order.OrderProducts)
                     {
                         op.orderid = order.id;
-
-                        // if exist
-                        bool exists = await _context.orderProduct
-                            .AnyAsync(x => x.orderid == op.orderid && x.productid == op.productid);
-
-                        if (!exists)
-                        {
-                            _context.orderProduct.Add(op);
-                            await _context.SaveChangesAsync();
-                        }
                     }
+
+                    _context.orderProduct.AddRange(order.OrderProducts);
+                    await _context.SaveChangesAsync();
                 }
 
                 return CreatedAtAction(nameof(GetSignleProductsById), new { id = order.id }, order);
             }
             catch (Exception e)
             {
-                // Returning a code 500
                 return StatusCode(500, new { message = "Błąd przy tworzeniu zamówienia", details = e.Message });
             }
         }
