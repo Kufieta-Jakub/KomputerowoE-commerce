@@ -177,8 +177,8 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
            "type": "GPU",
            "description": "A very powerfull graphic card"
    }
-   ```
-
+  ```
+   
 - Usuwanie produktu:  
   `DELETE /api/Product/deleteproduct/id/<id>`
 
@@ -219,7 +219,7 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
     { "productid": 4, "quantity": 5 }
   ]
   }
-```
+  ```
 
 - Usuwanie zamówienia:  
   `DELETE /api/Orders/deleteorder/id/<id>`
