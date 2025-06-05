@@ -125,3 +125,98 @@ CREATE TABLE public.orderproduct (
 
    ```json
     "DefaultConnection": "Host=localhost;Port=5432;Database=KomputerowoDB;Username=<twój użytkownik>;Password=<twoje hasło>"
+# KomputerowoE-commerce API
+
+## 🔗 Jak się połączyć z wdrożoną aplikacją
+
+Aplikacja została wdrożona na platformie **Azure App Service** i jest dostępna pod adresem:
+
+```
+https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net
+```
+
+### 📡 Endpointy API
+
+## METODY DLA PRODUKTU
+
+- Lista produktów:  
+  `GET /api/Product`
+  
+- Pobieranie produktów po id:  
+`GET /api/Product/id/<id>`
+
+- Lista produktów po name:  
+  `GET /api/Product/name/<name>`
+
+- Tworzenie produkty:  
+  `POST /api/Product/createproduct`
+
+- Edytowanie produkty:  
+  `PATCH /api/Product/updateproduct/id/<id>`
+
+- Usuwanie produktu:  
+  `DELETE /api/Product/deleteproduct/id/<id>`
+
+## METODY DLA ZAMÓWIENIA
+
+- Lista zamówień:  
+  `GET /api/Orders`
+
+- Pobranie zamówienia po id:  
+  `GET /api/Orders/{id}`
+  
+- Pobranie zamówienia po imieniu klienta:  
+  `GET /api/Orders/customername/<customername>`
+  
+- Tworzenie zamówienia:  
+  `POST /api/Orders/createorder`
+
+- Edytowanie zamówienia
+  `PATCH /api/Orders/updateorder/id/<id>`
+
+- Usuwanie zamówienia:  
+  `DELETE /api/Orders/deleteorder/id/<id>`
+
+- Usuwanie produktu z zamówenia:  
+  `/api/Orders/deleteproductorder/id/<id>/productid/<prductid>`
+
+## ☁️ Wykorzystane usługi Azure
+
+- **Azure App Service** – hostowanie backendu ASP.NET Core.
+- **Azure Database for PostgreSQL Flexible Server** – baza danych aplikacji.
+- **Azure Resource Group** – grupa do zarządzania zasobami.
+
+---
+
+## ⚙️ Konfiguracja
+
+### appsettings.json
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=<HOSTNAME>;Port=5432;Database=<DATABASE_NAME>;Username=<USERNAME>;Password=<PASSWORD>;Ssl Mode=Require"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+
+```bash
+# Przykład poprawnego JSON:
+{
+  "customername": "Jan Nowak",
+  "orderproduct": [
+    { "productid": 1, "quantity": 2 }
+  ]
+}
+```
+
+---
+
