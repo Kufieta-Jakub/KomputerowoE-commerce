@@ -196,6 +196,16 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
 - Tworzenie zamówienia:  
   `POST /api/Orders/createorder`
 
+   ```json
+   {
+     "customername": "Janwdwek Adsaam",
+     "orderproduct": [
+       { "productid": 1, "quantity":1 },
+       { "productid": 4, "quantity":4 }
+     ]
+   }
+   ```
+   
 - Edytowanie zamówienia
   `PATCH /api/Orders/updateorder/id/<id>`
 
