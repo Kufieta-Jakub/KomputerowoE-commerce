@@ -134,6 +134,12 @@ Aplikacja została wdrożona na platformie **Azure App Service** i jest dostępn
 https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net
 ```
 
+Link do swaggera:
+
+```
+https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
+```
+
 ### 📡 Endpointy API
 
 ## METODY DLA PRODUKTU
@@ -150,8 +156,28 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net
 - Tworzenie produkty:  
   `POST /api/Product/createproduct`
 
+  ```json
+   {
+        "name": "GTX 4080",
+        "price": 2099.99,
+        "type": "GPU",
+        "description": "A very powerfull graphic card"
+  }
+
+  
 - Edytowanie produkty:  
   `PATCH /api/Product/updateproduct/id/<id>`
+
+   ```json
+   {
+         PATCH /api/Product/updateproduct/id/6
+   
+           "name": "GTX 4080",
+           "price": 2299.99,
+           "type": "GPU",
+           "description": "A very powerfull graphic card"
+   }
+   ```
 
 - Usuwanie produktu:  
   `DELETE /api/Product/deleteproduct/id/<id>`
@@ -226,3 +252,32 @@ Polega on na automatycznym wdrożeniu i budowie ASP.NET core do Azure WEB APP za
 .github/workflows/deploy.yml
 ```
 
+**Proces jest wykonywany automatycznie po wypchnięciu push do gałęzi master**
+
+## 🔨Budowanie i publikowanie ##
+GitHub Actions wykonuje następujące kroki:
+
+- Checkout kodu źródłowego
+
+- Instalacja SDK .NET 8
+
+- Przywrócenie zależności (dotnet restore)
+
+- Kompilacja aplikacji (dotnet build)
+
+- Publikacja aplikacji (dotnet publish) do katalogu ./publish
+
+## ☁️ Wdrożenie do Azure Web App ##
+Aplikacja jest wdrażana do usługi Azure App Service za pomocą akcji:
+
+```yaml
+uses: azure/webapps-deploy@v3
+```
+
+## 🔐 Wymagane sekrety ##
+
+- AZURE_DB_CONNECTION_STRING
+
+- AZURE_WEBAPP_PUBLISH_PROFILE
+
+- DB_PASSWORD
