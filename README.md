@@ -208,6 +208,18 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
    
 - Edytowanie zamówienia
   `PATCH /api/Orders/updateorder/id/<id>`
+  ```json
+  {
+  PATCH /api/Orders/updateorder/id/1
+
+  
+  "customername": "Janek Kowalskiewicz",
+  "orderproduct": [
+    { "productid": 6, "quantity": 30 },
+    { "productid": 4, "quantity": 5 }
+  ]
+  }
+```
 
 - Usuwanie zamówienia:  
   `DELETE /api/Orders/deleteorder/id/<id>`
