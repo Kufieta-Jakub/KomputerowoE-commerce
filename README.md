@@ -156,8 +156,28 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
 - Tworzenie produkty:  
   `POST /api/Product/createproduct`
 
+  ```json
+   {
+        "name": "GTX 4080",
+        "price": 2099.99,
+        "type": "GPU",
+        "description": "A very powerfull graphic card"
+  }
+
+  
 - Edytowanie produkty:  
   `PATCH /api/Product/updateproduct/id/<id>`
+
+   ```json
+   {
+         PATCH /api/Product/updateproduct/id/6
+   
+           "name": "GTX 4080",
+           "price": 2299.99,
+           "type": "GPU",
+           "description": "A very powerfull graphic card"
+   }
+   ```
 
 - Usuwanie produktu:  
   `DELETE /api/Product/deleteproduct/id/<id>`
