@@ -232,3 +232,19 @@ Polega on na automatycznym wdrożeniu i budowie ASP.NET core do Azure WEB APP za
 .github/workflows/deploy.yml
 ```
 
+**Proces jest wykonywany automatycznie po wypchnięciu push do gałęzi master**
+
+** Build & Publish **
+GitHub Actions wykonuje następujące kroki:
+
+- Checkout kodu źródłowego
+
+- Instalacja SDK .NET 8
+
+- Przywrócenie zależności (dotnet restore)
+
+- Kompilacja aplikacji (dotnet build)
+
+- Publikacja aplikacji (dotnet publish) do katalogu ./publish
+
+
