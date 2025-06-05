@@ -134,6 +134,12 @@ Aplikacja została wdrożona na platformie **Azure App Service** i jest dostępn
 https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net
 ```
 
+Link do swaggera:
+
+```
+https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net/swagger
+```
+
 ### 📡 Endpointy API
 
 ## METODY DLA PRODUKTU
