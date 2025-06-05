@@ -125,7 +125,6 @@ CREATE TABLE public.orderproduct (
 
    ```json
     "DefaultConnection": "Host=localhost;Port=5432;Database=KomputerowoDB;Username=<twój użytkownik>;Password=<twoje hasło>"
-# KomputerowoE-commerce API
 
 ## 🔗 Jak się połączyć z wdrożoną aplikacją
 
@@ -219,4 +218,11 @@ https://komputerowo-bvbrhmccf6cxhddh.westeurope-01.azurewebsites.net
 ```
 
 ---
+# Proces CI/CD
+Polega on na automatycznym wdrożeniu i budowie ASP.NET core do Azure WEB APP za każdym razem gdy zrobi się push
+
+##📁 Plik znajduje się w katalogu
+```bash
+.github/workflows/deploy.yml
+```
 
