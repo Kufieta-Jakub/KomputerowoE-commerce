@@ -234,7 +234,7 @@ Polega on na automatycznym wdrożeniu i budowie ASP.NET core do Azure WEB APP za
 
 **Proces jest wykonywany automatycznie po wypchnięciu push do gałęzi master**
 
-** Build & Publish **
+** 🔨Budowanie i publikowanie **
 GitHub Actions wykonuje następujące kroki:
 
 - Checkout kodu źródłowego
@@ -247,4 +247,17 @@ GitHub Actions wykonuje następujące kroki:
 
 - Publikacja aplikacji (dotnet publish) do katalogu ./publish
 
+** ☁️ Wdrożenie do Azure Web App **
+Aplikacja jest wdrażana do usługi Azure App Service za pomocą akcji:
 
+```yaml
+uses: azure/webapps-deploy@v3
+```
+
+** 🔐 Wymagane sekrety **
+
+- AZURE_DB_CONNECTION_STRING
+
+- AZURE_WEBAPP_PUBLISH_PROFILE
+
+- DB_PASSWORD
