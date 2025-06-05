@@ -155,7 +155,8 @@ namespace KomputerowoE_commerce.Controllers
                     var newOrderProduct = new OrderProduct
                     {
                         orderid = id,
-                        productid = op.productid
+                        productid = op.productid,
+                        quantity = op.quantity
                     };
                     _context.orderproduct.Add(newOrderProduct);
                 }
